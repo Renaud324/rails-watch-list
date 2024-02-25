@@ -1,0 +1,8 @@
+<h1>New bookmark</h1>
+<h3>For  <%= @list.name %></h3>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie, collection: Movie.all, prompt: "Select a Movie" %>
+  <%= f.submit "Submit bookmark", class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Go back to list", list_path(@list) %>
